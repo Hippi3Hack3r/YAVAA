@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountViewMain">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="219dp"
+        android:layout_height="50dp"
+        android:text="@string/accounts"
+        android:textColor="@color/purple_500"
+        android:textSize="40sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.132" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/account1"
+        android:layout_width="341dp"
+        android:layout_height="116dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardElevation="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.268">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/banner" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0sp"
+            android:background="@drawable/gradient"
+            android:text="@string/checking"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="337dp"
+        android:layout_height="112dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardElevation="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account1"
+        app:layout_constraintVertical_bias="0.049">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30sp"
+            android:text="@string/secret_vault"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="5sp"
+            android:layout_marginBottom="5sp"
+            android:text="" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="84sp"
+        android:background="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/newTransfer"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="30sp"
+            android:layout_marginTop="16sp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/todo"
+            android:elevation="10sp"
+            android:focusable="true"
+            app:srcCompat="@drawable/add_button" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="12sp"
+            android:layout_marginBottom="8sp"
+            android:gravity="center"
+            android:text="@string/new_transfer"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/searchUsers"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="110sp"
+            android:layout_marginTop="16sp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/todo"
+            android:elevation="10sp"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+
+        <TextView
+            android:id="@+id/searchUsersText"
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="100sp"
+            android:layout_marginBottom="8sp"
+            android:gravity="center"
+            android:text="Search Users"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/logout"
+            android:layout_marginStart="300sp"
+            android:layout_marginTop="16sp"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginBottom="12sp"
+            android:background="@color/transparent"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_baseline_logout_24" />
+
+        <TextView
+            android:id="@+id/logouttxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="60sp"
+            android:layout_marginBottom="6sp"
+            android:gravity="center"
+            android:text="@string/logout"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/depositcheck"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="200sp"
+            android:layout_marginTop="16sp"
+            android:background="@color/transparent"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+        <TextView
+            android:id="@+id/deposittxt"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="180sp"
+            android:layout_marginBottom="6sp"
+            android:gravity="center"
+            android:text="@string/deposit_check"
+            android:textColor="@color/white" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <Button
+        android:id="@+id/contact"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:text="@string/contact_john"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
+
+    <ImageButton
+        android:id="@+id/viewdeets"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:background="@color/transparent"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13"
+        app:srcCompat="@drawable/ic_baseline_info_24" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="90sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:text="@string/account_info"
+        android:textColor="@color/dark_teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewdeets"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">TheHackerBank</string>
+    <string name="intro_text">Welcome Back!</string>
+    <string name="title_activity_account_view">AccountView</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="ivi1_intro">
+        It is critically important to properly handle any user inputs
+        to an application.  See if you can get the search engine to output
+        a list of all of the users within the database.\n\n
+        Worse than this, developers continue to make the mistake of
+        logging sensitive information to the Android system log!
+    </string>
+    <string name="ivi1_enter">Enter user name to search</string>
+    <string name="ivi1_search">SEARCH</string>
+    <string name="account_details">Account Details</string>
+    <string name="deets_explanation">
+        Your account information and API key are displayed above for your convenience.
+        Don\'t worry about security!
+        Since you went through the login activity, it MUST be completely secure!
+    </string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="secret_vault">Secret Vault (UNIMPLEMENTED)</string>
+    <string name="contact_john">Contact John</string>
+    <string name="deposit_check">Deposit Check</string>
+    <string name="accounts">Accounts</string>
+    <string name="checking"> Your Hacker Points</string>
+    <string name="balance">$1,370</string>
+    <string name="redacted">REDACTED</string>
+    <string name="todo">TODO</string>
+    <string name="new_transfer">New Transfer</string>
+    <string name="account_info">Account Info</string>
+    <string name="logout">Logout</string>
+    <string name="placeholder">$42</string>
+    <string name="from_placeholder">aaah</string>
+    <string name="to_placeholder">aaah</string>
+    <string name="pin_entry">Please enter your PIN</string>
+    <string name="send_beacon_to_john">Send Beacon To John</string>
+    <string name="pinning">You\'ve likely noticed that the 42 hacker points John gave you
+        were stolen by a hacker, and sent nowhere in particular. Press the button below to alert John.
+        \n Note: We have pinned Johns public key to make sure nobody intercepts your message...</string>
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".NewTransfer">
+
+    <LinearLayout
+
+        android:layout_width="400dp"
+        android:layout_height="389dp"
+        android:layout_marginTop="60sp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fromact"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:hint="From Account"
+            app:errorEnabled="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/fromactInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16sp"
+                android:drawablePadding="12dp"
+                android:inputType="none"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/toact"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:hint="To Account"
+            app:errorEnabled="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/toactInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="12dp"
+                android:inputType="none"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amount"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:hint="Amount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amountInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_money"
+                android:drawablePadding="12dp"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/desc"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="12dp"
+            android:hint="Description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_label"
+                android:drawablePadding="16sp"
+                android:inputType="text|textMultiLine"
+                android:maxLines="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+
+            android:id="@+id/addTransactionBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="12sp"
+            android:background="@color/textgreen"
+            android:padding="10sp"
+            android:text="Complete Transfer"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

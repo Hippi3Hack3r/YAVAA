@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountDetails">
+<TextView
+    android:paddingTop="30sp"
+    android:paddingEnd="30sp"
+    android:paddingStart="30sp"
+    android:id="@+id/apicTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:gravity="fill_horizontal|fill_vertical"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:text=""
+    android:textAlignment="gravity"
+    android:textColor="@color/dark_teal">
+</TextView>
+    <TextView
+        android:id="@+id/accessmethod"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:textSize="34sp"
+        android:text=""/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:textSize="20sp"
+        android:paddingBottom="40sp"
+        android:paddingRight="10sp"
+        android:paddingLeft="10sp"
+        android:text="@string/deets_explanation" />
+</RelativeLayout>
