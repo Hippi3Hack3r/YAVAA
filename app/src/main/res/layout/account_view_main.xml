@@ -153,8 +153,8 @@
             android:layout_marginTop="16sp"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:layout_marginBottom="12sp"
             android:background="@color/transparent"
+            android:elevation="10sp"
             android:focusable="true"
             app:srcCompat="@drawable/ic_baseline_logout_24" />
 
@@ -162,18 +162,19 @@
             android:id="@+id/logouttxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="60sp"
-            android:layout_marginBottom="6sp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="300sp"
+            android:layout_marginBottom="8sp"
             android:gravity="center"
             android:text="@string/logout"
+            android:textSize="12sp"
             android:textColor="@color/white" />
 
         <ImageButton
             android:id="@+id/depositcheck"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:layout_marginStart="200sp"
+            android:layout_marginStart="210sp"
             android:layout_marginTop="16sp"
             android:background="@color/transparent"
             android:focusable="true"
@@ -187,6 +188,7 @@
             android:layout_marginStart="180sp"
             android:layout_marginBottom="6sp"
             android:gravity="center"
+            android:textSize="12sp"
             android:text="@string/deposit_check"
             android:textColor="@color/white" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>

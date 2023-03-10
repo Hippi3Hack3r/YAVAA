@@ -1,4 +1,4 @@
-![YAVAA](yavaabanner.png)
+![YAVAA](readmeimages/yavaabanner.png)
 ## About ##
 YAVAA is an intentionally vulnerable android application for pentesting.
 The app calls itself "The Hacker Bank" and the premise is as follows:  
@@ -25,3 +25,6 @@ This app also does both Root detection and Certificate Pinning
 
 ## Flags ##
 There's flags. Flags everywhere. Don't bother running strings. You won't find them that way.
+
+## Sponsors ##
+![BHIS](readmeimages/bhisbanner.webp)

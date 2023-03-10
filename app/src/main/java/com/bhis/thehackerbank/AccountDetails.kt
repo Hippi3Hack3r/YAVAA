@@ -48,7 +48,7 @@ class AccountDetails : AppCompatActivity() {
             val decodedString: String = String(Base64.decode("ZmxhZ3tpX2tub3dfaG93X3lvdV9nb3RfaGVyZX0=", 0))
             c.text = decodedString
             apidetails = ""
-        } else if (legit.length != 64) {
+        } else if (legit.length > 0) {
             val decodedSting: String = String(Base64.decode("ZmxhZ3t0aGVzZV9hcmVudF90aGVfZXh0cmFzX3lvdXJlX2xvb2tpbmdfZm9yfQ==", 0))
             c.text = decodedSting
         }
