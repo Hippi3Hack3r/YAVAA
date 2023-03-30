@@ -88,11 +88,11 @@
         app:srcCompat="@drawable/mountains" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tUser"
         android:layout_width="167dp"
         android:layout_height="53dp"
         android:gravity="center"
-        android:text="Hi notahacker,"
+        android:text="Hi ,"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"

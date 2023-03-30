@@ -11,6 +11,14 @@ stolen by a hacker. Your goal is to find a way to deposit the hackerpoints back 
 ## Architecture ##
 Authentication and database operations are handled by a remote end point. Therefore the app requires
 an internet connection to run.
+At install time, you are provisioned with a 5 digit user name, as can be seen on the login screen. The
+password will be the same as the user name.
+
+#### Anticipated FAQ's ####
+* "The app throws a can't connect to server error"
+The backend server probably isn't currently running. If you're using a proxy, check your proxy settings.
+* "I think I broke everything, what should I do?"
+Uninstall and reinstall. This should set you up with a new account.
 
 ## Attack Surface ##
 This application is designed to demonstrate the following vulnerabilities:

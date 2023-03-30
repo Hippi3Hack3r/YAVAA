@@ -1,6 +1,7 @@
 package com.bhis.thehackerbank
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import androidx.room.Room
 import com.bhis.thehackerbank.R.layout.account1_view
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.io.File
 
 
 class Account1View : AppCompatActivity() {
@@ -24,8 +26,13 @@ class Account1View : AppCompatActivity() {
         setContentView(account1_view)
 
         val cookie = intent.getStringExtra("USER_COOKIE")!!
-
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        val yourFilePath = "${filesDir}/registered.txt"
+        val yourFile = File(yourFilePath)
+        val user = yourFile.readText()
+        val thisaccount = "%ssHackerPoints".format(user)
+        Log.d("YAVAA-DEBUG", "displaying account data for $thisaccount")
 
         // initialize the database
         transactions = arrayListOf()
@@ -40,12 +47,13 @@ class Account1View : AppCompatActivity() {
             transactions = db.transactionDao().getAll()
             runOnUiThread {
                 transactionAdapter.setData(transactions)
-                println("aaaaaaaaaaaaaaaaaaaa")
                 for (trans in transactions) {
-                    if (trans.to_acct != "YOURHACKERPOINTS")
+                    if (trans.to_acct != thisaccount) {
+                        Log.d("YAVAA-debug", "$trans")
                         count -= trans.amount
-                    else
+                    } else {
                         count += trans.amount
+                    }
                 }
                 val total = findViewById<TextView>(R.id.Balance)
                 total.text = "Balance: " + count.toString()
@@ -53,7 +61,7 @@ class Account1View : AppCompatActivity() {
         }
 
         // cache in local database for searching
-        transactionAdapter = TransactionAdapter(transactions)
+        transactionAdapter = TransactionAdapter(transactions, thisaccount)
         llayoutManager = LinearLayoutManager(this)
 
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)

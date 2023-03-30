@@ -5,11 +5,8 @@ import android.content.DialogInterface
 import android.util.Log
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import okhttp3.*
-import okhttp3.HttpUrl.Companion.toHttpUrl
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
 import java.io.IOException
-import java.net.URI
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import java.util.concurrent.CountDownLatch
@@ -54,12 +51,54 @@ class networkHelpers {
         return this
     }
 
-    // Get a login cookie using the remote endpoint.
-    fun validateLogin(URL: String, password : String, context: Context): Array<String> {
+    fun registerAccount(devid : String): String {
 
         var resp = "Nope."
 
-        val fb = FormBody.Builder().add("username", "notahacker").add("password", password).build()
+        Log.d("YAVAA-DEBUG", "Registering a New user")
+        val fb = FormBody.Builder().add("newuser", devid).build()
+        val request = Request.Builder().url("https://android.pwncompany.com/newuser").post(fb).build()
+
+        val client = OkHttpClient.Builder().apply { ignoreAllSSLErrors() }
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .build()
+
+        val countDownLatch = CountDownLatch(1)
+        client.newCall(request).enqueue(object: Callback
+        {
+            override fun onResponse(call: Call, response: Response) {
+                Log.d("YAVAA-DEBUG", "Success contacting server.")
+                val okay = response.code
+                if (okay == 200) {
+                    resp = response.body?.string().toString()
+                } else {
+                    resp = "error,error"
+                }
+                countDownLatch.countDown()
+            }
+            // TODO: Figure out why this is crashing the app
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("YAVAA-ERROR", "$e")
+                countDownLatch.countDown()
+                //ConnectError(context)
+            }
+        })
+        countDownLatch.await()
+        return resp
+    }
+
+    // Get a login cookie using the remote endpoint.
+    fun validateLogin(password : String, context: Context): Array<String> {
+        val URL = "https://android.pwncompany.com"
+        var resp = "Nope."
+
+        val yourFilePath = "${context.filesDir}/registered.txt"
+        val yourFile = File(yourFilePath)
+
+        val user = yourFile.readText()
+
+        val fb = FormBody.Builder().add("username", password).add("password", password).build()
         val request = Request.Builder().url(URL).post(fb).build()
 
         val client = OkHttpClient.Builder().apply { ignoreAllSSLErrors() }

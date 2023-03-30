@@ -1,5 +1,6 @@
 package com.bhis.thehackerbank
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class TransactionAdapter(private var transactions: List<Transaction>) :
+class TransactionAdapter(private var transactions: List<Transaction>, private var user: String) :
     RecyclerView.Adapter<TransactionAdapter.TransactionHolder>() {
 
     class TransactionHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -25,8 +26,7 @@ class TransactionAdapter(private var transactions: List<Transaction>) :
         val transaction = transactions[position]
         val context = holder.amount.context
 
-        //if(transaction.amount >= 0){
-        if (transaction.to_acct == "YOURHACKERPOINTS") {
+        if (transaction.to_acct == this.user) {
             holder.amount.text = "+ $%.2f".format(transaction.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.textgreen))
         }else {

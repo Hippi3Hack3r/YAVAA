@@ -112,7 +112,7 @@ class NewTransfer : AppCompatActivity() {
                 etamount.error = "Please enter a valid amount"
                 return@setOnClickListener
             }
-            if (amount.toDouble() <= 0) {// potential attack here
+            if (amount.toDouble() < 0) {// potential attack here
                 etamount.error = "Amount must be greater than 0"
                 return@setOnClickListener
             }
