@@ -20,6 +20,8 @@ import kotlin.system.exitProcess
 
 class networkHelpers {
 
+    val DOMAIN = "api.mostly-harmless.xyz"
+    //val PKEY = "UQCqmKG2ih7/XEfHyEJ9KZGmTAOxlWXATDxP/5hMQ6M="
     // This displays the popup window informing the user of a network error
     fun ConnectError(context: Context) {
         MaterialAlertDialogBuilder(context)
@@ -57,7 +59,7 @@ class networkHelpers {
 
         Log.d("YAVAA-DEBUG", "Registering a New user")
         val fb = FormBody.Builder().add("newuser", devid).build()
-        val request = Request.Builder().url("https://android.pwncompany.com/newuser").post(fb).build()
+        val request = Request.Builder().url("https://$DOMAIN/newuser").post(fb).build()
 
         val client = OkHttpClient.Builder().apply { ignoreAllSSLErrors() }
             .connectTimeout(60, TimeUnit.SECONDS)
@@ -73,6 +75,7 @@ class networkHelpers {
                     resp = response.body?.string().toString()
                 } else {
                     resp = "error,error"
+
                 }
                 countDownLatch.countDown()
             }
@@ -90,9 +93,8 @@ class networkHelpers {
 
     // Get a login cookie using the remote endpoint.
     fun validateLogin(password : String, context: Context): Array<String> {
-        val URL = "https://android.pwncompany.com"
+        val URL = "https://$DOMAIN"
         var resp = "Nope."
-
         val yourFilePath = "${context.filesDir}/registered.txt"
         val yourFile = File(yourFilePath)
 
@@ -142,7 +144,7 @@ class networkHelpers {
     fun getRecords(cookie: String): String {
 
         lateinit var resp: String
-        val URL = "https://android.pwncompany.com/gettransactions"
+        val URL = "https://$DOMAIN/gettransactions"
         val request = Request.Builder().addHeader("authcookie", cookie).url(URL).get().build()
 
         val client = OkHttpClient.Builder().apply { ignoreAllSSLErrors() }
@@ -170,7 +172,7 @@ class networkHelpers {
     fun findUser(query : String ): String {
 
         lateinit var resp: String
-        val URL = "https://android.pwncompany.com/finduser?s=${query}"
+        val URL = "https://$DOMAIN/finduser?s=${query}"
         val request = Request.Builder().url(URL).get().build()
 
 
@@ -198,7 +200,7 @@ class networkHelpers {
     fun findAllUsers(): List<String> {
 
         lateinit var resp: String
-        val URL = "https://android.pwncompany.com/getusers"
+        val URL = "https://$DOMAIN/getusers"
         val request = Request.Builder().url(URL).get().build()
 
 
@@ -226,14 +228,14 @@ class networkHelpers {
 
     fun pinnedRequest(context: Context, secret: String): String {
         println("did in fact make it to this function")
-        val URL = "https://android.pwncompany.com/contactjohn"
+        val URL = "https://$DOMAIN/contactjohn"
         var resp = "error"
         val request = Request.Builder().addHeader("secretkey", secret).url(URL).build()
 
         val certificatePinner = CertificatePinner.Builder()
             .add(
-                "android.pwncompany.com",
-                "sha256/lthr/1UV+iqttgRBR+hKnRH2jzOcFxwLqqVdr/Qti5Q="
+                DOMAIN,
+                "sha256/UQCqmKG2ih7/XEfHyEJ9KZGmTAOxlWXATDxP/5hMQ6M="
             )
             .build()
         val client = OkHttpClient.Builder()

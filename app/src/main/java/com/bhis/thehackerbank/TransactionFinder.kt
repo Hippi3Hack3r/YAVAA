@@ -26,14 +26,6 @@ import kotlin.system.exitProcess
 
 class TransactionFinder : AppCompatActivity() {
     var mDB: SQLiteDatabase? = null
-    var seed = ((Math.pow(2.0, 58.0) / 7.0 - (93.0 % 250
-            / 531) - 3.0.pow(6.0) + Math.pow(
-        813.0,
-        21.0
-    )).toInt() % (536870912 / 2097152)) - 238
-
-    //println("$seed")
-    private var smh: SupportingMethods = SupportingMethods()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val flag1 = "and9cHYrSH5kMXBjdDFBZn90dTEgISEgbA=="
@@ -68,37 +60,5 @@ class TransactionFinder : AppCompatActivity() {
             Log.d("diva-sql", "Error occurred while creating database for SQLI: " + e.message)
         }
         setContentView(R.layout.activity_transaction_finder)
-    }
-
-    fun search(view: View?) {
-        val srchtxt = findViewById(R.id.ivi1search) as EditText
-        var cr: Cursor? = null
-        val imm = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        //imm.hideSoftInputFromWindow(this.getCurrentFocus()?.getWindowToken() ?: , 0)
-        try {
-            cr = mDB!!.rawQuery(
-                "SELECT * FROM sqliuser WHERE user = '" + srchtxt.text.toString() + "'",
-                null
-            )
-            val strb = StringBuilder("")
-            if (cr != null && cr.count > 0) {
-                cr.moveToFirst()
-                do {
-                    val extra: String = smh.transcode(cr.getString(2), seed)
-                    strb.append(
-                        """
-                            User: ${cr.getString(0)}, Password: ${cr.getString(1)}, Extra: $extra
-                            
-                            """.trimIndent()
-                    )
-                } while (cr.moveToNext())
-            } else {
-                strb.append("User: (" + srchtxt.text.toString() + ") not found")
-            }
-            Log.d("diva-sqli", strb.toString())
-            Toast.makeText(this, strb.toString(), Toast.LENGTH_LONG).show()
-        } catch (e: Exception) {
-            Log.d("diva-sqli", "Error occurred while searching in database: " + e.message)
-        }
     }
 }
