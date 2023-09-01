@@ -20,7 +20,7 @@ import kotlin.system.exitProcess
 
 class networkHelpers {
 
-    val DOMAIN = "api.mostly-harmless.xyz"
+    val DOMAIN = "android.pwncompany.com"
     //val PKEY = "UQCqmKG2ih7/XEfHyEJ9KZGmTAOxlWXATDxP/5hMQ6M="
     // This displays the popup window informing the user of a network error
     fun ConnectError(context: Context) {
@@ -235,7 +235,7 @@ class networkHelpers {
         val certificatePinner = CertificatePinner.Builder()
             .add(
                 DOMAIN,
-                "sha256/UQCqmKG2ih7/XEfHyEJ9KZGmTAOxlWXATDxP/5hMQ6M="
+                "sha256/lthr/1UV+iqttgRBR+hKnRH2jzOcFxwLqqVdr/Qti5Q="
             )
             .build()
         val client = OkHttpClient.Builder()
